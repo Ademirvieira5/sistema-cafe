@@ -101,10 +101,18 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 
 - Compras por período, fornecedor, quantidade, preço unitário e valor total.
 - Vendas por período, cliente, quantidade, preço unitário e valor total.
-- Resumo com quantidades e preços médios ponderados de compra e venda.
+- Relatório mensal de compras e vendas, incluindo operações com documento fiscal e sem documento, com identificação clara da situação documental.
+- Resumo mensal com quantidades, quilos, sacas e preços médios ponderados de compra e venda.
+- Apuração do lucro bruto geral do mês pela fórmula: receita das vendas menos CMV do café efetivamente vendido.
+- O CMV deve usar o custo médio ponderado do estoque; não calcular lucro bruto simplesmente subtraindo as compras do mês das vendas do mês.
+- Demonstrar receita bruta, quantidade vendida, custo médio, CMV, lucro bruto em reais e margem bruta percentual.
+- Permitir detalhar o resultado por lançamento e consolidar operações com e sem documento.
 - Relatório diário de compras de café a pagar.
 - Relatório diário de vendas de café a receber.
 - Cada relatório deve mostrar número do negócio, data, fornecedor ou cliente, quilos, sacas, preço por saca, valor total, parcelas, valores já baixados e saldo em aberto.
+- No relatório “A pagar”, reunir compras de café e despesas/contas gerais, identificando a origem de cada linha.
+- No relatório “A receber”, reunir vendas de café e outras receitas/contas a receber, identificando a origem de cada linha.
+- Permitir visualizar tudo consolidado ou filtrar somente café, despesas, vendas ou outras receitas.
 - Os relatórios devem permitir filtro por período, vencimento, fornecedor ou cliente e situação.
 - Exibir totais de quilos, sacas, valor original, valor baixado e saldo aberto ao final.
 - Preparar os dois relatórios especialmente para visualização e impressão diária, além da exportação em PDF.
