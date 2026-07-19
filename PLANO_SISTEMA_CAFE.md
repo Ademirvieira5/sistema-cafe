@@ -89,7 +89,13 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 - Conciliação diária com o extrato bancário.
 - Manutenção dos lançamentos ainda abertos.
 - Saldo por banco.
-- Fluxo de caixa diário com saldos bancários, contas a pagar e contas a receber.
+- Fluxo financeiro projetado por dia, começando pelo saldo bancário inicial de cada data.
+- Para cada dia, demonstrar separadamente entradas previstas, saídas previstas e saldo final projetado.
+- O saldo final de um dia deve alimentar automaticamente o saldo inicial do dia seguinte.
+- Permitir abrir cada dia para conferir os lançamentos que formam entradas e saídas.
+- Permitir filtrar por período e por conta bancária, além de consolidar todas as contas.
+- Disponibilizar visualização profissional pronta para impressão, exportação em PDF e compartilhamento com o comprador.
+- O relatório enviado deve mostrar data, saldo inicial, total de entradas, total de saídas e saldo final, com totais do período.
 
 ### 8. Relatórios
 
@@ -100,7 +106,7 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 - Parcelas abertas, parciais, pagas e vencidas.
 - Comissões de corretores.
 - Movimentação e saldo das contas bancárias.
-- Fluxo de caixa diário.
+- Fluxo financeiro diário, com saldo inicial, entradas, saídas, saldo final e relatório próprio para envio ao comprador.
 - Visualização antes da impressão e exportação em PDF.
 
 ### 9. Importação de NF-e por XML
@@ -127,6 +133,8 @@ Etapa futura:
 - Estados de carregamento, vazio, erro e sucesso.
 - Layout responsivo para computador e iPad.
 - Aparência premium sem sacrificar velocidade ou legibilidade.
+- Direção visual escolhida: tema escuro sofisticado, grafite profundo, verde-esmeralda e cobre.
+- O fluxo financeiro diário deve ter destaque central na tela inicial, com leitura rápida do saldo por dia.
 
 ## Ordem oficial de implementação
 
