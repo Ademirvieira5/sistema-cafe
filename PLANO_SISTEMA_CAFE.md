@@ -102,7 +102,13 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 - Compras por período, fornecedor, quantidade, preço unitário e valor total.
 - Vendas por período, cliente, quantidade, preço unitário e valor total.
 - Resumo com quantidades e preços médios ponderados de compra e venda.
-- Contas a pagar e receber.
+- Relatório diário de compras de café a pagar.
+- Relatório diário de vendas de café a receber.
+- Cada relatório deve mostrar número do negócio, data, fornecedor ou cliente, quilos, sacas, preço por saca, valor total, parcelas, valores já baixados e saldo em aberto.
+- Os relatórios devem permitir filtro por período, vencimento, fornecedor ou cliente e situação.
+- Exibir totais de quilos, sacas, valor original, valor baixado e saldo aberto ao final.
+- Preparar os dois relatórios especialmente para visualização e impressão diária, além da exportação em PDF.
+- Contas a pagar e receber de outras finalidades.
 - Parcelas abertas, parciais, pagas e vencidas.
 - Comissões de corretores.
 - Movimentação e saldo das contas bancárias.
@@ -135,6 +141,7 @@ Etapa futura:
 - Aparência premium sem sacrificar velocidade ou legibilidade.
 - Direção visual escolhida: tema escuro sofisticado, grafite profundo, verde-esmeralda e cobre.
 - O fluxo financeiro diário deve ter destaque central na tela inicial, com leitura rápida do saldo por dia.
+- Os atalhos “Compras a pagar” e “Vendas a receber” devem ficar acessíveis na tela inicial por serem usados e impressos diariamente.
 
 ## Ordem oficial de implementação
 
