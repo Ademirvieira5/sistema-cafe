@@ -37,6 +37,22 @@ Antes da primeira alteração funcional:
 7. Registre dúvidas, conflitos, riscos e melhorias recomendadas.
 8. Confirme que o trabalho atual está limitado à etapa autorizada.
 
+## Ordem oficial das etapas
+
+1. Planejamento
+2. Banco de dados
+3. Cadastros
+4. Compras
+5. Pagamentos
+6. Vendas
+7. Recebimentos
+8. Corretores
+9. Financeiro
+10. Relatórios
+11. Importação de XML
+
+Não avance para a etapa seguinte sem concluir, testar, informar o resultado e receber autorização do usuário.
+
 ## Etapa 1 autorizada
 
 A primeira etapa deve conter somente:
@@ -51,14 +67,21 @@ A primeira etapa deve conter somente:
 
 Ao terminar a Etapa 1, pare e aguarde nova instrução.
 
-## Interface
+## Interface premium obrigatória
 
-- Mantenha a tela inicial limpa e objetiva.
-- Abra cadastros e lançamentos em páginas próprias, janelas próprias ou modais adequados.
+- O sistema deve ser uma aplicação web profissional, elegante e moderna, adequada a uma empresa real.
+- A experiência visual deve ter padrão premium: hierarquia clara, bom espaçamento, tipografia refinada, ícones consistentes, estados de interação bem definidos e acabamento de produto comercial.
+- Evite aparência de planilha, sistema antigo, painel genérico ou protótipo improvisado.
+- Mantenha a tela inicial limpa, objetiva e visualmente sofisticada.
+- Use navegação lateral organizada e cabeçalho discreto, sem excesso de informações.
+- Abra cadastros e lançamentos em páginas próprias, painéis laterais ou modais adequados.
 - Não concentre todos os campos do sistema na tela inicial.
+- Use componentes consistentes para botões, campos, tabelas, filtros, cartões, alertas e diálogos.
+- Inclua estados de carregamento, vazio, erro, confirmação e sucesso com mensagens claras.
+- Garanta acessibilidade, contraste, foco visível e navegação por teclado.
+- O layout deve ser responsivo e funcionar muito bem em computador e iPad, com campos confortáveis para toque.
 - Use linguagem em português do Brasil e formatação brasileira para datas, números, CPF/CNPJ e valores monetários.
-- Exiba mensagens de validação compreensíveis para o usuário.
-- Considere uso em computador e tablet, com navegação simples e campos confortáveis para toque.
+- Preserve desempenho e simplicidade de uso; efeitos visuais não podem prejudicar a operação diária.
 
 ## Parcelas de pagamentos e recebimentos
 
@@ -86,7 +109,8 @@ Ao terminar a Etapa 1, pare e aguarde nova instrução.
 
 - Relatórios devem permitir visualização antes da impressão.
 - Relatórios devem permitir impressão ou exportação em PDF.
-- A apresentação dos relatórios deve usar português do Brasil e formatação brasileira para datas, números, sacas e valores monetários.
+- A apresentação dos relatórios deve seguir o mesmo padrão visual premium do sistema.
+- Use português do Brasil e formatação brasileira para datas, números, sacas e valores monetários.
 
 ## Qualidade e verificação
 
