@@ -83,7 +83,13 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 
 - Contas a pagar e receber não ligadas ao café.
 - Categorias de receitas e despesas.
-- Movimentações por cheque, TED, PIX, débito e outras formas.
+- Movimentações bancárias de pagamento e recebimento por cheque, TED, PIX, débito e outras formas.
+- Cada movimentação deve ser vinculada à conta bancária, à pessoa envolvida e, quando existir, à compra, venda, parcela ou conta que originou o valor.
+- Registrar data do lançamento, data da movimentação/compensação, valor, tipo, nominal/favorecido, discriminação e documento.
+- Para cheques, registrar banco, número do cheque, nominal, emissão, vencimento e situação: aberto, emitido, recebido, compensado, devolvido ou cancelado.
+- Para TED e PIX, registrar favorecido/pagador, documento ou referência e data da confirmação.
+- Pagamentos e recebimentos bancários devem gerar a baixa correspondente, inclusive parcial, sem duplicar o valor no fluxo financeiro.
+- As movimentações confirmadas atualizam o saldo realizado do banco; as futuras ou ainda abertas alimentam o saldo projetado diário.
 - Campos de nominal e discriminação.
 - Vínculo obrigatório com conta bancária quando aplicável.
 - Conciliação diária com o extrato bancário.
