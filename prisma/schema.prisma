@@ -30,6 +30,11 @@ enum BankAccountType {
   CASH
 }
 
+enum PurchaseStatus {
+  OPEN
+  CANCELLED
+}
+
 model Person {
   id          String       @id @default(cuid())
   personType  PersonType
@@ -51,6 +56,7 @@ model Person {
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   roles       PersonRole[]
+  purchases   Purchase[]
 
   @@index([legalName])
   @@index([active])
@@ -79,9 +85,53 @@ model Broker {
   active     Boolean    @default(true)
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
+  purchases  Purchase[]
 
   @@index([name])
   @@index([active])
+}
+
+model Purchase {
+  id                String          @id @default(cuid())
+  sequence          Int             @unique
+  date              DateTime
+  supplierId        String
+  supplier          Person          @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  kilograms         Decimal
+  sacks             Decimal
+  pricePerSack      Decimal
+  grossAmount       Decimal
+  adjustmentAmount  Decimal         @default(0)
+  totalAmount       Decimal
+  brokerId          String?
+  broker             Broker?         @relation(fields: [brokerId], references: [id], onDelete: Restrict)
+  commissionPercent Decimal?
+  commissionAmount  Decimal          @default(0)
+  notes             String?
+  status            PurchaseStatus   @default(OPEN)
+  installments      PurchaseInstallment[]
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  @@index([date])
+  @@index([supplierId])
+  @@index([brokerId])
+  @@index([status])
+}
+
+model PurchaseInstallment {
+  id         String   @id @default(cuid())
+  purchaseId String
+  purchase   Purchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  number     Int
+  dueDate    DateTime
+  amount     Decimal
+  paidAmount Decimal  @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([purchaseId, number])
+  @@index([dueDate])
 }
 
 model FinancialCategory {

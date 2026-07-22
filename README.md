@@ -4,7 +4,7 @@ Aplicação web para compras, vendas e controle financeiro de uma empresa que op
 
 ## Escopo atual
 
-A Etapa 1 implementa:
+A Etapa 1 implementa os cadastros e a Etapa 2 acrescenta:
 
 - fornecedores e clientes em uma base única;
 - corretores;
@@ -13,8 +13,12 @@ A Etapa 1 implementa:
 - inativação sem exclusão física;
 - histórico de alterações;
 - interface responsiva para computador e iPad.
+- compras de café com cálculo automático de sacas e valores;
+- um vencimento inicial e botão para adicionar quantos forem necessários;
+- comissão do corretor em percentual ou valor em reais;
+- ficha de conferência do corretor com sacas e preço unitário.
 
-Compras, vendas, pagamentos, recebimentos, financeiro, relatórios e XML permanecem para as próximas etapas.
+Baixas de pagamentos e comissões, vendas, recebimentos, financeiro, relatórios gerais e XML permanecem para as próximas etapas.
 
 ## Como executar
 

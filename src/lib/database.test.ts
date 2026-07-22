@@ -59,4 +59,13 @@ describe("persistência e histórico da Etapa 1", () => {
     await client.broker.create({ data: { personType: "PJ", name: "Corretora Um", cpfCnpj: "11444777000161" } });
     await expect(client.broker.create({ data: { personType: "PJ", name: "Corretora Dois", cpfCnpj: "11444777000161" } })).rejects.toThrow();
   });
+
+  it("grava compra com sacas, vencimentos e comissão do corretor", async () => {
+    const supplier = await client.person.create({ data: { personType: "PF", legalName: "Fornecedor Compra", roles: { create: { role: "SUPPLIER" } } } });
+    const broker = await client.broker.create({ data: { personType: "PF", name: "Corretor Compra" } });
+    const purchase = await client.purchase.create({ data: { sequence: 1, date: new Date("2026-07-23T12:00:00"), supplierId: supplier.id, kilograms: "6000", sacks: "100", pricePerSack: "1850", grossAmount: "185000", totalAmount: "185000", brokerId: broker.id, commissionPercent: "0.5", commissionAmount: "925", installments: { create: [{ number: 1, dueDate: new Date("2026-08-01T12:00:00"), amount: "100000" }, { number: 2, dueDate: new Date("2026-09-01T12:00:00"), amount: "85000" }] } }, include: { installments: true } });
+    expect(purchase.sacks.toFixed(3)).toBe("100.000");
+    expect(purchase.commissionAmount.toFixed(2)).toBe("925.00");
+    expect(purchase.installments).toHaveLength(2);
+  });
 });

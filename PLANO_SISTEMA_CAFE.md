@@ -43,14 +43,14 @@ Cada compra deve permitir:
 - diferenças, descontos ou acréscimos editáveis;
 - valor total final;
 - corretor vinculado;
-- comissão do corretor;
-- parcelas de pagamento;
+- comissão do corretor informada em percentual sobre o valor total ou diretamente em reais;
+- um vencimento inicial com botão `Adicionar vencimento`, sem limite fixo;
 - observações;
 - histórico de alterações.
 
 ### 3. Pagamentos
 
-- Quatro parcelas visíveis inicialmente.
+- Uma parcela visível inicialmente.
 - Botão `Adicionar parcela` para quantas forem necessárias.
 - Edição de vencimento e valor.
 - Baixa parcial ou total de cada parcela.
@@ -73,6 +73,7 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 ### 6. Corretores
 
 - Ficha individual do corretor.
+- Conferência com data e número do negócio, fornecedor ou cliente, sacas, preço por saca, valor total, percentual ou valor da comissão, valor pago, saldo e situação; sem coluna de vencimento.
 - Comissão originada por compra ou venda.
 - Lançamentos manuais permitidos quando necessários.
 - Conta corrente de comissões.

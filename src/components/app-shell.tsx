@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Building2, ChartNoAxesCombined, ChevronRight, CircleDollarSign, Coffee, Handshake, Landmark, LayoutDashboard, Menu, Tags, Users, X } from "lucide-react";
+import { Building2, ChartNoAxesCombined, ChevronRight, CircleDollarSign, Coffee, FileText, Handshake, Landmark, LayoutDashboard, Menu, Tags, Users, X } from "lucide-react";
 import { useState } from "react";
 
 const navigation = [
@@ -11,10 +11,12 @@ const navigation = [
   { href: "/cadastros/corretores", label: "Corretores", icon: Handshake },
   { href: "/cadastros/categorias", label: "Categorias financeiras", icon: Tags },
   { href: "/cadastros/contas", label: "Contas bancárias", icon: Landmark },
+  { href: "/compras", label: "Compras de café", icon: Coffee },
+  { href: "/corretores/ficha", label: "Ficha dos corretores", icon: FileText },
 ];
 
 const future = [
-  { label: "Compras e vendas", icon: Coffee },
+  { label: "Vendas", icon: Coffee },
   { label: "Financeiro", icon: CircleDollarSign },
   { label: "Relatórios", icon: ChartNoAxesCombined },
 ];
@@ -53,4 +55,3 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
