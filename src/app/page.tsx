@@ -19,10 +19,10 @@ export default function Home() {
 
       <section className="hero-panel">
         <div className="hero-copy">
-          <span className="status-pill"><span className="pulse" /> Etapa 1 em operação</span>
+          <span className="status-pill"><span className="pulse" /> Etapa 2 em operação</span>
           <h2>A estrutura certa para o movimento diário do seu negócio.</h2>
           <p>Fornecedores, clientes, corretores, categorias e contas bancárias reunidos em uma base segura e preparada para as próximas etapas.</p>
-          <Link href="/cadastros/pessoas" className="primary-button">Começar pelos cadastros <ArrowRight size={18} /></Link>
+          <Link href="/compras" className="primary-button">Registrar uma compra <ArrowRight size={18} /></Link>
         </div>
         <div className="flow-preview" aria-label="Prévia do fluxo financeiro futuro">
           <div className="flow-heading"><span><WalletCards size={18} /> Fluxo financeiro</span><small>Próxima etapa</small></div>
@@ -40,8 +40,7 @@ export default function Home() {
           </Link>
         ))}
       </div>
-      <footer className="stage-footer"><span>01</span><div><strong>Fundação do sistema</strong><p>Cadastros e banco de dados · Compras, vendas e financeiro serão liberados nas próximas etapas.</p></div></footer>
+      <footer className="stage-footer"><span>02</span><div><strong>Compras de café</strong><p>Negócios, vencimentos e comissões · Baixas financeiras serão liberadas na próxima etapa.</p></div></footer>
     </div>
   );
 }
-

@@ -16,9 +16,9 @@ Antes da Etapa 1, o repositório continha apenas `AGENTS.md`, `PLANO_SISTEMA_CAF
 ## Etapas
 
 1. **Fundação e cadastros:** estrutura, banco, fornecedores/clientes, corretores, categorias e contas bancárias.
-2. **Compras:** negócios, quilos, sacas, valores, ajustes, documento fiscal e corretor.
-3. **Pagamentos:** parcelas ilimitadas com quatro linhas iniciais, baixas parciais e saldos.
-4. **Vendas:** negócios de venda e vínculo com estoque/custo.
+2. **Compras:** negócios, quilos, sacas, valores, ajustes, vencimentos e comissão do corretor.
+3. **Pagamentos:** parcelas ilimitadas com uma linha inicial, baixas parciais e saldos.
+4. **Vendas:** integradas à mesma tela de negócios das compras, selecionando cliente e vencimentos a receber.
 5. **Recebimentos:** parcelas, baixas e saldos a receber.
 6. **Conta de corretores:** comissões de compras e vendas, lançamentos e baixas.
 7. **Financeiro e bancos:** contas gerais, movimentos, cheques, PIX, TED, conciliação e fluxo diário.
@@ -63,7 +63,7 @@ Todos os valores monetários usarão `DECIMAL/NUMERIC`. Quilos, sacas, preços e
 ### Futuro autorizado somente em etapas próprias
 
 - Compras, vendas e baixas em páginas ou painéis próprios.
-- Parcelas com quatro linhas iniciais e botão `Adicionar parcela`, sem limite no banco.
+- Parcelas com uma linha inicial e botão `Adicionar parcela`, sem limite no banco.
 - Fluxo financeiro diário central na visão geral.
 - Relatórios de compras, vendas, a pagar, a receber, bancos, comissões, CMV e lucro bruto, todos com pré-visualização e PDF.
 - Conferência de XML antes de criar qualquer lançamento.
@@ -76,4 +76,3 @@ Todos os valores monetários usarão `DECIMAL/NUMERIC`. Quilos, sacas, preços e
 - **CPF/CNPJ compartilhado:** a base evita duplicar uma mesma pessoa como fornecedor e cliente por meio dos papéis múltiplos.
 - **Saldo inicial:** é decimal exato e será a origem do fluxo por conta quando o financeiro for implementado.
 - **HTML salvo:** foi preservado por pertencer ao histórico anterior, embora não faça parte da aplicação.
-
