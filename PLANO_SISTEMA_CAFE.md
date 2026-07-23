@@ -60,11 +60,14 @@ Cada compra deve permitir:
 
 ### 4. Vendas de café
 
-Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitário, valor total, ajustes, corretor, comissão e parcelas de recebimento.
+- Compras e vendas usam a mesma tela `Negócios de Café`, com seleção obrigatória do tipo da operação.
+- Na compra, selecionar fornecedor e gerar vencimentos a pagar; na venda, selecionar cliente e gerar vencimentos a receber.
+- Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitário, valor total, ajustes, corretor, comissão e parcelas de recebimento.
+- Comissão pode existir tanto na compra quanto na venda, em percentual ou valor direto em reais.
 
 ### 5. Recebimentos
 
-- Quatro parcelas iniciais e expansão conforme necessidade.
+- Uma parcela inicial e expansão conforme necessidade.
 - Baixas parciais e totais.
 - Conta bancária e forma de recebimento.
 - Saldo por parcela e por venda.
@@ -83,6 +86,8 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 ### 7. Financeiro geral
 
 - Contas a pagar e receber não ligadas ao café.
+- Lançamentos gerais devem informar pagar ou receber, categoria, descrição, pessoa opcional, vencimento, valor e se são fixos mensais ou eventuais.
+- Contas gerais e vencimentos de negócios de café devem aparecer juntos no mapa diário, com identificação clara da origem.
 - Categorias de receitas e despesas.
 - Movimentações bancárias de pagamento e recebimento por cheque, TED, PIX, débito e outras formas.
 - Cada movimentação deve ser vinculada à conta bancária, à pessoa envolvida e, quando existir, à compra, venda, parcela ou conta que originou o valor.
@@ -108,6 +113,9 @@ Estrutura equivalente à compra, contendo cliente, quilos, sacas, preço unitár
 
 - Compras por período, fornecedor, quantidade, preço unitário e valor total.
 - Vendas por período, cliente, quantidade, preço unitário e valor total.
+- Os relatórios individuais de compras e vendas não exibem vencimentos; somam quilos, sacas e valores e calculam preço médio ponderado somente dentro do período escolhido.
+- Mapa diário único de contas a pagar e receber, filtrado por intervalo de vencimentos, fornecedor ou cliente, demonstrando total a pagar, total a receber, saldo de cada dia e saldo acumulado.
+- O mapa diário deve permitir consolidar tudo, mostrar somente pagar ou receber e imprimir para uso operacional diário.
 - Relatório mensal de compras e vendas, incluindo operações com documento fiscal e sem documento, com identificação clara da situação documental.
 - Resumo mensal com quantidades, quilos, sacas e preços médios ponderados de compra e venda.
 - Apuração do lucro bruto geral do mês pela fórmula: receita das vendas menos CMV do café efetivamente vendido.

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bankAccountSchema, brokerSchema, categorySchema, personSchema, purchaseSchema } from "@/lib/validation";
+import { bankAccountSchema, brokerSchema, categorySchema, generalEntrySchema, personSchema, purchaseSchema } from "@/lib/validation";
 import { parseMoney } from "@/lib/format";
 
 describe("validações dos cadastros", () => {
@@ -49,15 +49,18 @@ describe("valores monetários", () => {
 
 describe("compra de café", () => {
   it("aceita um vencimento inicial e comissão percentual", () => {
-    const result = purchaseSchema.parse({ date: "2026-07-23", supplierId: "fornecedor-1", kilograms: "6.000,000", pricePerSack: "1.850,00", adjustmentAmount: "0,00", brokerId: "corretor-1", commissionMode: "PERCENT", commissionValue: "0,5", installments: [{ dueDate: "2026-08-01", amount: "185.000,00" }] });
+    const result = purchaseSchema.parse({ businessType: "PURCHASE", date: "2026-07-23", supplierId: "fornecedor-1", kilograms: "6.000,000", pricePerSack: "1.850,00", adjustmentAmount: "0,00", brokerId: "corretor-1", commissionMode: "PERCENT", commissionValue: "0,5", installments: [{ dueDate: "2026-08-01", amount: "185.000,00" }] });
     expect(result.kilograms).toBe("6000.000");
     expect(result.commissionValue).toBe("0.5");
     expect(result.installments).toHaveLength(1);
   });
 
   it("aceita comissão preenchida diretamente em reais e vários vencimentos", () => {
-    const result = purchaseSchema.parse({ date: "2026-07-23", supplierId: "fornecedor-1", kilograms: "6000", pricePerSack: "1850", adjustmentAmount: "0", commissionMode: "AMOUNT", commissionValue: "925,00", installments: [{ dueDate: "2026-08-01", amount: "100.000,00" }, { dueDate: "2026-09-01", amount: "85.000,00" }] });
+    const result = purchaseSchema.parse({ businessType: "SALE", date: "2026-07-23", supplierId: "cliente-1", kilograms: "6000", pricePerSack: "1850", adjustmentAmount: "0", commissionMode: "AMOUNT", commissionValue: "925,00", installments: [{ dueDate: "2026-08-01", amount: "100.000,00" }, { dueDate: "2026-09-01", amount: "85.000,00" }] });
     expect(result.commissionMode).toBe("AMOUNT");
+    expect(result.businessType).toBe("SALE");
     expect(result.installments).toHaveLength(2);
   });
 });
+
+describe("contas gerais",()=>{it("aceita despesa fixa mensal",()=>{const r=generalEntrySchema.parse({direction:"PAYABLE",description:"Aluguel",categoryId:"cat-1",dueDate:"2026-08-10",amount:"2.500,00",fixedMonthly:true});expect(r.amount).toBe("2500.00");expect(r.fixedMonthly).toBe(true)})});

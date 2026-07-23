@@ -18,7 +18,7 @@ Antes da Etapa 1, o repositório continha apenas `AGENTS.md`, `PLANO_SISTEMA_CAF
 1. **Fundação e cadastros:** estrutura, banco, fornecedores/clientes, corretores, categorias e contas bancárias.
 2. **Compras:** negócios, quilos, sacas, valores, ajustes, vencimentos e comissão do corretor.
 3. **Pagamentos:** parcelas ilimitadas com uma linha inicial, baixas parciais e saldos.
-4. **Vendas:** negócios de venda e vínculo com estoque/custo.
+4. **Vendas:** integradas à mesma tela de negócios das compras, selecionando cliente e vencimentos a receber.
 5. **Recebimentos:** parcelas, baixas e saldos a receber.
 6. **Conta de corretores:** comissões de compras e vendas, lançamentos e baixas.
 7. **Financeiro e bancos:** contas gerais, movimentos, cheques, PIX, TED, conciliação e fluxo diário.

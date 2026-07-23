@@ -13,10 +13,12 @@ A Etapa 1 implementa os cadastros e a Etapa 2 acrescenta:
 - inativação sem exclusão física;
 - histórico de alterações;
 - interface responsiva para computador e iPad.
-- compras de café com cálculo automático de sacas e valores;
+- negócios de café com seleção de compra ou venda e cálculo automático de sacas e valores;
 - um vencimento inicial e botão para adicionar quantos forem necessários;
 - comissão do corretor em percentual ou valor em reais;
 - ficha de conferência do corretor com sacas e preço unitário.
+- relatórios separados de compras e vendas com preço médio ponderado;
+- mapa diário consolidado de contas a pagar e receber, com saldo diário, acumulado, filtros e impressão.
 
 Baixas de pagamentos e comissões, vendas, recebimentos, financeiro, relatórios gerais e XML permanecem para as próximas etapas.
 

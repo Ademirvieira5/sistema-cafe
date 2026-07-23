@@ -11,14 +11,14 @@ const navigation = [
   { href: "/cadastros/corretores", label: "Corretores", icon: Handshake },
   { href: "/cadastros/categorias", label: "Categorias financeiras", icon: Tags },
   { href: "/cadastros/contas", label: "Contas bancárias", icon: Landmark },
-  { href: "/compras", label: "Compras de café", icon: Coffee },
+  { href: "/compras", label: "Negócios de café", icon: Coffee },
   { href: "/corretores/ficha", label: "Ficha dos corretores", icon: FileText },
+  { href: "/contas-gerais", label: "Contas gerais", icon: CircleDollarSign },
+  { href: "/relatorios", label: "Mapa diário e relatórios", icon: ChartNoAxesCombined },
 ];
 
 const future = [
-  { label: "Vendas", icon: Coffee },
-  { label: "Financeiro", icon: CircleDollarSign },
-  { label: "Relatórios", icon: ChartNoAxesCombined },
+  { label: "Bancos e conciliação", icon: CircleDollarSign },
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -48,7 +48,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="sidebar-footer">
           <span className="avatar"><Users size={17} /></span>
-          <span><strong>Ambiente principal</strong><small>Etapa 1 · Cadastros</small></span>
+          <span><strong>Ambiente principal</strong><small>Negócios e mapa diário</small></span>
         </div>
       </aside>
       <main className="main-content">{children}</main>

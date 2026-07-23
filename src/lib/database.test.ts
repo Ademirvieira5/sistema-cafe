@@ -68,4 +68,11 @@ describe("persistência e histórico da Etapa 1", () => {
     expect(purchase.commissionAmount.toFixed(2)).toBe("925.00");
     expect(purchase.installments).toHaveLength(2);
   });
+
+  it("grava conta geral fixa para compor o mapa diário", async () => {
+    const category = await client.financialCategory.create({ data: { name: "Aluguel mensal", type: "EXPENSE" } });
+    const entry = await client.generalEntry.create({ data: { direction: "PAYABLE", description: "Aluguel do escritório", categoryId: category.id, dueDate: new Date("2026-08-10T12:00:00"), amount: "2500", fixedMonthly: true } });
+    expect(entry.fixedMonthly).toBe(true);
+    expect(entry.amount.toFixed(2)).toBe("2500.00");
+  });
 });

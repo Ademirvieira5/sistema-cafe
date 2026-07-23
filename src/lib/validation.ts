@@ -114,6 +114,7 @@ const decimalText = (label: string, scale = 2) => z.unknown().transform((value, 
 });
 
 export const purchaseSchema = z.object({
+  businessType: z.enum(["PURCHASE", "SALE"]),
   date: z.string().refine((value) => !Number.isNaN(Date.parse(`${value}T12:00:00`)), "Data inválida"),
   supplierId: z.string().min(1, "Selecione o fornecedor"),
   kilograms: decimalText("Quantidade em quilos", 3),
@@ -135,6 +136,17 @@ export const purchaseSchema = z.object({
     dueDate: z.string().refine((value) => !Number.isNaN(Date.parse(`${value}T12:00:00`)), "Vencimento inválido"),
     amount: decimalText("Valor do vencimento"),
   })).min(1, "Informe pelo menos um vencimento"),
+});
+
+export const generalEntrySchema = z.object({
+  direction: z.enum(["PAYABLE", "RECEIVABLE"]),
+  description: z.string().trim().min(2, "Informe a descrição").max(160),
+  categoryId: z.string().min(1, "Selecione a categoria"),
+  personId: optionalText,
+  dueDate: z.string().refine((value) => !Number.isNaN(Date.parse(`${value}T12:00:00`)), "Vencimento inválido"),
+  amount: decimalText("Valor"),
+  fixedMonthly: z.boolean().default(false),
+  notes: optionalText,
 });
 
 export const moduleSchemas = {
