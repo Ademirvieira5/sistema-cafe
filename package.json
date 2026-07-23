@@ -1,36 +1,90 @@
 {
-  "name": "sistema-cafe",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "db:generate": "prisma generate",
-    "db:migrate": "prisma migrate dev",
-    "db:deploy": "prisma migrate deploy",
-    "db:studio": "prisma studio"
-  },
-  "dependencies": {
-    "@prisma/client": "6.19.0",
-    "lucide-react": "0.468.0",
-    "next": "16.2.11",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "zod": "3.24.1"
-  },
-  "devDependencies": {
-    "@types/node": "24.10.1",
-    "@types/react": "19.2.7",
-    "@types/react-dom": "19.2.3",
-    "eslint": "9.39.1",
-    "eslint-config-next": "16.2.11",
-    "prisma": "6.19.0",
-    "typescript": "5.9.3",
-    "vitest": "4.0.15"
-  }
+    "name":  "sistema-cafe",
+    "version":  "0.1.0",
+    "private":  true,
+    "scripts":  {
+                    "dev":  "next dev",
+                    "build":  "next build",
+                    "start":  "next start",
+                    "lint":  "eslint .",
+                    "test":  "vitest run",
+                    "test:watch":  "vitest",
+                    "db:generate":  "prisma generate",
+                    "db:migrate":  "prisma migrate dev",
+                    "db:deploy":  "prisma migrate deploy",
+                    "db:studio":  "prisma studio",
+                    "desktop":  "electron . --dev",
+                    "desktop:build":  "npm run build \u0026\u0026 npm run desktop:prepare-aliases \u0026\u0026 npm run desktop:prepare-db \u0026\u0026 electron-builder --win nsis",
+                    "desktop:dir":  "npm run build \u0026\u0026 npm run desktop:prepare-aliases \u0026\u0026 npm run desktop:prepare-db \u0026\u0026 electron-builder --dir",
+                    "desktop:prepare-db":  "node scripts/prepare-desktop-db.cjs",
+                    "desktop:prepare-aliases":  "node scripts/materialize-next-aliases.cjs"
+                },
+    "dependencies":  {
+                         "@prisma/client":  "6.19.0",
+                         "lucide-react":  "0.468.0",
+                         "next":  "16.2.11",
+                         "react":  "19.2.4",
+                         "react-dom":  "19.2.4",
+                         "zod":  "3.24.1"
+                     },
+    "devDependencies":  {
+                            "@types/node":  "24.10.1",
+                            "@types/react":  "19.2.7",
+                            "@types/react-dom":  "19.2.3",
+                            "electron":  "^43.2.0",
+                            "electron-builder":  "^26.15.3",
+                            "eslint":  "9.39.1",
+                            "eslint-config-next":  "16.2.11",
+                            "prisma":  "6.19.0",
+                            "typescript":  "5.9.3",
+                            "vitest":  "4.0.15"
+                        },
+    "description":  "Sistema desktop para compras, vendas e controle financeiro de café.",
+    "main":  "electron/main.cjs",
+    "build":  {
+                  "appId":  "br.com.cafebh.sistema",
+                  "productName":  "Sistema Café BH",
+                  "asar":  false,
+                  "directories":  {
+                                      "output":  "dist"
+                                  },
+                  "files":  [
+                                ".next/**/*",
+                                "!.next/standalone/**/*",
+                                "!.next/cache/**/*",
+                                "!.next/dev/**/*",
+                                "electron/**/*",
+                                "prisma/**/*",
+                                "public/**/*",
+                                "src/**/*",
+                                "next.config.ts",
+                                "package.json",
+                                "node_modules/.prisma/**/*"
+                            ],
+                  "win":  {
+                              "target":  "nsis"
+                          },
+                  "nsis":  {
+                               "oneClick":  false,
+                               "allowToChangeInstallationDirectory":  true,
+                               "createDesktopShortcut":  true,
+                               "createStartMenuShortcut":  true,
+                               "shortcutName":  "Sistema Café BH"
+                           },
+                  "extraResources":  [
+                                         {
+                                             "from":  "electron/template.db",
+                                             "to":  "template.db"
+                                         },
+                                         {
+                                             "from":  "node_modules/.prisma",
+                                             "to":  "app/.next/node_modules/.prisma"
+                                         },
+                                         {
+                                             "from":  ".next/node_modules/@prisma",
+                                             "to":  "app/.next/node_modules/@prisma"
+                                         }
+                                     ]
+              },
+    "author":  "Ademirvieira5"
 }
-

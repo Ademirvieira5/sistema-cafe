@@ -104,6 +104,51 @@ export const bankAccountSchema = z.object({
   active: z.boolean().default(true),
 });
 
+const decimalText = (label: string, scale = 2) => z.unknown().transform((value, ctx) => {
+  const raw = String(value ?? "").trim().replace(/\./g, "").replace(",", ".");
+  if (!new RegExp(`^\\d+(\\.\\d{1,${scale}})?$`).test(raw) || Number(raw) <= 0) {
+    ctx.addIssue({ code: z.ZodIssueCode.custom, message: `${label} inválido` });
+    return z.NEVER;
+  }
+  return raw;
+});
+
+export const purchaseSchema = z.object({
+  businessType: z.enum(["PURCHASE", "SALE"]),
+  date: z.string().refine((value) => !Number.isNaN(Date.parse(`${value}T12:00:00`)), "Data inválida"),
+  supplierId: z.string().min(1, "Selecione o fornecedor"),
+  kilograms: decimalText("Quantidade em quilos", 3),
+  pricePerSack: decimalText("Preço por saca"),
+  adjustmentAmount: z.unknown().transform((value, ctx) => {
+    const parsed = parseMoney(value);
+    if (parsed === null) { ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Ajuste inválido" }); return z.NEVER; }
+    return parsed;
+  }),
+  brokerId: optionalText,
+  commissionMode: z.enum(["PERCENT", "AMOUNT"]),
+  commissionValue: z.unknown().transform((value, ctx) => {
+    const raw = String(value ?? "0").trim().replace(/\./g, "").replace(",", ".");
+    if (!/^\d+(\.\d{1,4})?$/.test(raw)) { ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Comissão inválida" }); return z.NEVER; }
+    return raw;
+  }),
+  notes: optionalText,
+  installments: z.array(z.object({
+    dueDate: z.string().refine((value) => !Number.isNaN(Date.parse(`${value}T12:00:00`)), "Vencimento inválido"),
+    amount: decimalText("Valor do vencimento"),
+  })).min(1, "Informe pelo menos um vencimento"),
+});
+
+export const generalEntrySchema = z.object({
+  direction: z.enum(["PAYABLE", "RECEIVABLE"]),
+  description: z.string().trim().min(2, "Informe a descrição").max(160),
+  categoryId: z.string().min(1, "Selecione a categoria"),
+  personId: optionalText,
+  dueDate: z.string().refine((value) => !Number.isNaN(Date.parse(`${value}T12:00:00`)), "Vencimento inválido"),
+  amount: decimalText("Valor"),
+  fixedMonthly: z.boolean().default(false),
+  notes: optionalText,
+});
+
 export const moduleSchemas = {
   pessoas: personSchema,
   corretores: brokerSchema,
@@ -116,4 +161,3 @@ export type ModuleName = keyof typeof moduleSchemas;
 export function isModuleName(value: string): value is ModuleName {
   return value in moduleSchemas;
 }
-

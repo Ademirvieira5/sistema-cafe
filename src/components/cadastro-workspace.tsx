@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AlertCircle, Check, ChevronDown, Edit3, LoaderCircle, Plus, Power, PowerOff, Search, SlidersHorizontal, X } from "lucide-react";
 import { defaultValues, FieldConfig, ModuleConfig } from "@/lib/modules";
 import { formatCpfCnpj, formatMoney } from "@/lib/format";
@@ -49,6 +49,8 @@ function recordToForm(config: ModuleConfig, record: ApiRecord): FormState {
 }
 
 export function CadastroWorkspace({ config }: { config: ModuleConfig }) {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [records, setRecords] = useState<ApiRecord[]>([]);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("ativos");
@@ -79,6 +81,25 @@ export function CadastroWorkspace({ config }: { config: ModuleConfig }) {
     return () => window.clearTimeout(timer);
   }, [load]);
 
+  useEffect(() => {
+    function focusSearch() {
+      searchInputRef.current?.focus();
+      searchInputRef.current?.select();
+    }
+    window.addEventListener("cafe:focus-search", focusSearch);
+    return () => window.removeEventListener("cafe:focus-search", focusSearch);
+  }, []);
+
+  useEffect(() => {
+    function saveWithF2(event: KeyboardEvent) {
+      if (event.key === "F2" && modalOpen && !saving) {
+        event.preventDefault();
+        formRef.current?.requestSubmit();
+      }
+    }
+    window.addEventListener("keydown", saveWithF2);
+    return () => window.removeEventListener("keydown", saveWithF2);
+  }, [modalOpen, saving]);
   const tableHeaders = useMemo(() => headers(config), [config]);
 
   function openCreate() {
@@ -149,7 +170,7 @@ export function CadastroWorkspace({ config }: { config: ModuleConfig }) {
 
       <section className="records-panel">
         <div className="records-toolbar">
-          <label className="search-box"><Search size={18} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Pesquisar neste cadastro..." aria-label="Pesquisar" /></label>
+          <label className="search-box"><Search size={18} /><input ref={searchInputRef} value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Digite nome, documento ou código..." aria-label="Pesquisar" /><kbd>F8</kbd></label>
           <label className="status-filter"><SlidersHorizontal size={17} /><select value={status} onChange={(event) => setStatus(event.target.value)} aria-label="Filtrar por situação"><option value="ativos">Somente ativos</option><option value="inativos">Somente inativos</option><option value="todos">Todos</option></select><ChevronDown size={15} /></label>
           <span className="record-count">{records.length} {records.length === 1 ? "registro" : "registros"}</span>
         </div>
@@ -174,7 +195,7 @@ export function CadastroWorkspace({ config }: { config: ModuleConfig }) {
         <div className="modal-layer" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget && !saving) setModalOpen(false); }}>
           <section className="form-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <header className="modal-header"><div><span className="eyebrow">{editing ? "Editar cadastro" : "Novo cadastro"}</span><h2 id="modal-title">{editing ? `Editar ${config.singular}` : `Novo ${config.singular}`}</h2></div><button onClick={() => setModalOpen(false)} disabled={saving} aria-label="Fechar"><X size={21} /></button></header>
-            <form onSubmit={submit}>
+            <form ref={formRef} onSubmit={submit}>
               <div className="modal-body">
                 {error && <div className="form-error"><AlertCircle size={17} />{error}</div>}
                 {config.sections.map((section) => (
@@ -184,7 +205,7 @@ export function CadastroWorkspace({ config }: { config: ModuleConfig }) {
                 ))}
                 {editing && <label className="active-switch"><input type="checkbox" checked={Boolean(form.active)} onChange={(event) => setValue("active", event.target.checked)} /><span><i /><strong>Cadastro ativo</strong><small>Desative sem perder o histórico ou os vínculos futuros.</small></span></label>}
               </div>
-              <footer className="modal-footer"><button type="button" className="secondary-button" onClick={() => setModalOpen(false)} disabled={saving}>Cancelar</button><button className="primary-button" type="submit" disabled={saving}>{saving ? <><LoaderCircle className="spin" size={18} /> Salvando...</> : <><Check size={18} /> Salvar cadastro</>}</button></footer>
+              <footer className="modal-footer"><button type="button" className="secondary-button" onClick={() => setModalOpen(false)} disabled={saving}>Cancelar</button><button className="primary-button" type="submit" disabled={saving}>{saving ? <><LoaderCircle className="spin" size={18} /> Salvando...</> : <><Check size={18} /> Salvar cadastro <kbd>F2</kbd></>}</button></footer>
             </form>
           </section>
         </div>

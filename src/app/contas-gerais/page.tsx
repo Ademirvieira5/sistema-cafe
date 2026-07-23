@@ -1,0 +1,1 @@
+import{GeneralAccounts}from"@/components/general-accounts";import{generalEntryOptions}from"@/lib/general-entries";export const dynamic="force-dynamic";export default async function Page(){return <GeneralAccounts options={await generalEntryOptions()}/>}
