@@ -22,7 +22,20 @@ A Etapa 1 implementa os cadastros e a Etapa 2 acrescenta:
 
 Baixas de pagamentos e comissões, vendas, recebimentos, financeiro, relatórios gerais e XML permanecem para as próximas etapas.
 
-## Como executar
+## Abrir no Windows sem tela preta
+
+Depois da instalação inicial e da atualização pelo GitHub Desktop:
+
+1. Abra a pasta do projeto.
+2. Dê dois cliques em `INICIAR_SISTEMA_CAFE.vbs`.
+3. Aguarde alguns segundos; o navegador abrirá sozinho em `http://localhost:3000`.
+4. Para desligar o sistema, dê dois cliques em `FECHAR_SISTEMA_CAFE.vbs`.
+
+O inicializador trabalha escondido, cria o arquivo `.env` se ele ainda não existir, atualiza o banco e inicia o sistema sem manter uma janela preta visível.
+
+Opcionalmente, crie atalhos desses dois arquivos na Área de Trabalho.
+
+## Como executar manualmente
 
 Requisitos: Node.js 20 ou superior.
 
