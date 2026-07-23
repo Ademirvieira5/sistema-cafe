@@ -338,3 +338,70 @@ td { padding: 12px 14px; }
   .daily-strip { align-items: stretch; flex-direction: column; }.daily-actions { display: grid; grid-template-columns: repeat(3, 1fr); }.daily-actions > span { min-width: 0; }
   .trust-row { flex-wrap: wrap; }
 }
+
+.accounts-panel { margin-top: 28px; }
+.daily-date { padding: 12px 18px; color: var(--text); background: rgba(255,255,255,.025); border-bottom: 1px solid var(--border); }
+.daily-map tfoot td { color: #9eaaa4; background: rgba(57,201,138,.035); border-top: 1px solid rgba(57,201,138,.15); }
+.period-total { display: flex; justify-content: flex-end; gap: 28px; padding: 17px 19px; background: #151c19; border: 1px solid var(--border); border-radius: 13px; color: var(--muted); font-size: 10px; }
+.period-total b { display: block; margin-top: 5px; color: var(--text); font-size: 13px; }
+.checkbox-line { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; }
+.checkbox-line input { accent-color: var(--emerald); }
+.business-badge.payable { color: #e19797; background: rgba(220,100,100,.09); }
+.daily-actions > a { display: grid; grid-template-columns: 18px auto; column-gap: 6px; align-items: center; min-width: 116px; padding: 7px 9px; color: #75827b; background: rgba(255,255,255,.025); border: 1px solid transparent; border-radius: 8px; }
+.daily-actions > a:hover { color: #c8d2cd; border-color: rgba(57,201,138,.18); background: rgba(57,201,138,.055); }
+.daily-actions > a svg { grid-row: 1 / 3; }
+.daily-actions > a b { color: #aeb9b3; font-size: 8px; }
+.daily-actions > a small { color: #56635c; font-size: 7px; }
+
+/* Mesa operacional de compra e venda */
+.purchases-page { display: flex; height: calc(100vh - 44px); flex-direction: column; overflow: hidden; }
+.purchase-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 150px)); gap: 9px; margin: -7px 0 14px; }
+.purchase-summary > div { padding: 9px 12px; background: rgba(255,255,255,.025); border: 1px solid var(--border); border-radius: 9px; }
+.purchase-summary small, .purchase-summary strong { display: block; }.purchase-summary small { color: var(--muted-2); font-size: 8px; text-transform: uppercase; letter-spacing: .08em; }.purchase-summary strong { margin-top: 3px; font: 700 16px var(--font-display); }
+.purchases-page > .records-panel { min-height: 0; flex: 1; }
+.business-badge { display: inline-flex; padding: 5px 8px; border-radius: 14px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.business-badge.purchase { color: #79deae; background: rgba(57,201,138,.09); }.business-badge.sale { color: #e0a66f; background: rgba(213,152,97,.1); }
+
+.purchase-modal-layer { align-items: center; justify-content: center; padding: 12px 18px; }
+.purchase-modal { width: min(1180px, calc(100vw - 48px)); height: min(760px, calc(100vh - 68px)); border-radius: 16px; }
+.purchase-modal .modal-header { height: 64px; padding: 0 19px; }
+.purchase-modal .modal-header h2 { font-size: 18px; }
+.purchase-modal .modal-header .eyebrow { margin-bottom: 3px; font-size: 8px; }
+.purchase-modal form { height: calc(100% - 64px); }
+.purchase-modal .modal-body { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(390px, .82fr); grid-template-areas: "business commission" "business installments" "notes installments"; grid-template-rows: auto minmax(0, 1fr) auto; gap: 10px; min-height: 0; padding: 12px 14px; overflow: hidden; }
+.purchase-modal .form-section { min-width: 0; margin: 0; padding: 13px 14px; background: rgba(7,12,10,.28); border: 1px solid var(--border); border-radius: 11px; }
+.purchase-modal .form-section:nth-of-type(1) { grid-area: business; }
+.purchase-modal .form-section:nth-of-type(2) { grid-area: commission; }
+.purchase-modal .form-section:nth-of-type(3) { grid-area: installments; min-height: 0; }
+.purchase-modal .form-section:nth-of-type(4) { grid-area: notes; }
+.purchase-modal .form-section legend { padding: 0 6px; font-size: 10px; }
+.purchase-modal .form-section > p { margin: 3px 0 7px; font-size: 8px; }
+.purchase-modal .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 10px; margin-top: 10px; }
+.purchase-modal .field { gap: 5px; font-size: 8px; }
+.purchase-modal .field > span:first-child { min-height: 10px; }
+.purchase-modal .field input, .purchase-modal .field select { height: 35px; padding: 0 10px; font-size: 10px; }
+.purchase-modal .field textarea { min-height: 54px; max-height: 54px; padding: 9px 10px; resize: none; }
+.business-toggle { display: inline-flex; gap: 3px; padding: 3px; background: #0b100e; border: 1px solid var(--border); border-radius: 9px; }
+.business-toggle button { min-width: 88px; height: 29px; color: #67746d; background: transparent; border: 0; border-radius: 7px; font-size: 9px; font-weight: 650; cursor: pointer; }
+.business-toggle button.selected { color: #07140e; background: linear-gradient(135deg, #5bdca5, #34bd81); }.business-toggle button.selected.sale { color: #1a0e05; background: linear-gradient(135deg, #e3ab78, #c98348); }
+.calculated { display: flex; min-height: 49px; flex-direction: column; justify-content: center; padding: 0 11px; background: rgba(57,201,138,.055); border: 1px solid rgba(57,201,138,.11); border-radius: 9px; }
+.calculated small, .calculated strong { display: block; }.calculated small { color: #658076; font-size: 7px; text-transform: uppercase; letter-spacing: .06em; }.calculated strong { margin-top: 4px; color: #dbe8e2; font: 700 13px var(--font-display); }.calculated.copper { background: rgba(213,152,97,.055); border-color: rgba(213,152,97,.12); }.calculated.copper strong { color: #e1b185; }
+.total-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; padding: 9px 11px; background: linear-gradient(90deg, rgba(57,201,138,.08), rgba(57,201,138,.025)); border: 1px solid rgba(57,201,138,.13); border-radius: 9px; }
+.total-strip span { color: #6e7d75; font-size: 8px; }.total-strip b, .total-strip strong { display: block; margin-top: 3px; color: #d7e5de; font: 650 12px var(--font-display); }.total-strip strong { color: #5bdba4; }
+.installments { max-height: 174px; overflow-y: auto; padding-right: 3px; scrollbar-width: thin; scrollbar-color: #405048 transparent; }
+.installment-row { display: grid; grid-template-columns: 24px minmax(0, 1fr) minmax(0, 1fr) 27px; gap: 6px; align-items: end; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.045); }
+.installment-row > span { display: grid; place-items: center; width: 23px; height: 23px; margin-bottom: 6px; color: #6f7d76; background: rgba(255,255,255,.035); border-radius: 7px; font-size: 8px; }
+.installment-row .field small { color: #65726b; font-size: 7px; }.installment-row .field input { height: 33px; }
+.installment-row > button { display: grid; place-items: center; width: 27px; height: 27px; margin-bottom: 3px; color: #9d6767; background: rgba(239,119,119,.05); border: 1px solid rgba(239,119,119,.1); border-radius: 7px; cursor: pointer; }
+.add-installment { display: inline-flex; align-items: center; gap: 6px; height: 30px; margin-top: 8px; padding: 0 9px; color: #8bcbae; background: rgba(57,201,138,.055); border: 1px solid rgba(57,201,138,.14); border-radius: 8px; font-size: 8px; font-weight: 650; cursor: pointer; }
+.add-installment:hover { background: rgba(57,201,138,.1); }
+.installment-check { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; padding: 8px 9px; color: #8e7770; background: rgba(213,152,97,.045); border: 1px solid rgba(213,152,97,.1); border-radius: 8px; font-size: 8px; }
+.installment-check span { min-width: 0; }.installment-check b { display: block; margin-top: 2px; color: #d9a574; font-size: 10px; }.installment-check.ok { color: #729e89; background: rgba(57,201,138,.045); border-color: rgba(57,201,138,.11); }.installment-check.ok b { color: #62d7a4; }
+.purchase-modal .modal-footer { min-height: 55px; padding: 9px 14px; }
+.purchase-modal .modal-footer .primary-button, .purchase-modal .modal-footer .secondary-button { min-height: 36px; }
+
+@media (max-width: 980px) {
+  .purchase-modal { width: calc(100vw - 24px); height: calc(100vh - 58px); }
+  .purchase-modal .modal-body { grid-template-columns: 1fr; grid-template-areas: "business" "commission" "installments" "notes"; grid-template-rows: auto; overflow-y: auto; }
+  .installments { max-height: none; }
+}

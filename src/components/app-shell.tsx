@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Building2, ChevronDown, ChevronRight, CircleDollarSign, Coffee,
-  Command, Handshake, Landmark, LayoutDashboard,
-  Maximize2, Menu, Minus, PackageSearch, Search, ShoppingCart, Tags, Users,
+  Building2, ChartNoAxesCombined, ChevronDown, ChevronRight, CircleDollarSign, Coffee,
+  Command, FileText, Handshake, Landmark, LayoutDashboard,
+  Maximize2, Menu, Minus, PackageSearch, Search, Tags, Users,
   WalletCards, X,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -16,13 +16,15 @@ const navigation = [
   { href: "/cadastros/corretores", label: "Corretores", icon: Handshake },
   { href: "/cadastros/categorias", label: "Categorias", icon: Tags },
   { href: "/cadastros/contas", label: "Contas bancárias", icon: Landmark },
+  { href: "/compras", label: "Negócios de café", icon: Coffee },
+  { href: "/corretores/ficha", label: "Ficha dos corretores", icon: FileText },
+  { href: "/contas-gerais", label: "Contas gerais", icon: CircleDollarSign },
+  { href: "/relatorios", label: "Mapa diário e relatórios", icon: ChartNoAxesCombined },
 ];
 
-const operationPreview = [
-  { label: "Compras", icon: ShoppingCart },
-  { label: "Pagamentos", icon: WalletCards },
-  { label: "Vendas", icon: PackageSearch },
-  { label: "Financeiro", icon: CircleDollarSign },
+const futureModules = [
+  { label: "Bancos e conciliação", icon: WalletCards },
+  { label: "Importação de XML", icon: PackageSearch },
 ];
 
 type MenuEntry = { label: string; href?: string; shortcut?: string; disabled?: boolean; action?: "reload" | "close" | "commands" };
@@ -35,21 +37,20 @@ const menus: MenuGroup[] = [
     { label: "Recarregar", action: "reload", shortcut: "Ctrl+R" },
     { label: "Sair", action: "close", shortcut: "Alt+F4" },
   ] },
-  { label: "Cadastros", entries: navigation.slice(1).map(({ href, label }) => ({ label, href })) },
+  { label: "Cadastros", entries: navigation.slice(1, 5).map(({ href, label }) => ({ label, href })) },
   { label: "Operações", entries: [
-    { label: "Compras de café", disabled: true, shortcut: "Próxima etapa" },
-    { label: "Pagamentos", disabled: true },
-    { label: "Vendas de café", disabled: true },
-    { label: "Recebimentos", disabled: true },
+    { label: "Negócios de café", href: "/compras" },
+    { label: "Ficha dos corretores", href: "/corretores/ficha" },
+    { label: "Contas gerais", href: "/contas-gerais" },
   ] },
   { label: "Relatórios", entries: [
-    { label: "Compras e vendas", disabled: true },
-    { label: "Fluxo financeiro", disabled: true },
-    { label: "Apuração de resultado", disabled: true },
+    { label: "Mapa diário", href: "/relatorios" },
+    { label: "Compras e vendas", href: "/relatorios" },
+    { label: "Apuração de resultado", disabled: true, shortcut: "Próxima evolução" },
   ] },
   { label: "Ajuda", entries: [
     { label: "Atalhos e comandos", action: "commands", shortcut: "F8" },
-    { label: "Sistema Café BH · Etapa 1", disabled: true },
+    { label: "Sistema Café BH · Negócios e mapa diário", disabled: true },
   ] },
 ];
 
@@ -100,7 +101,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   const commands = useMemo(() => [
-    ...navigation.map(({ href, label, icon }) => ({ href, label, icon, group: href === "/" ? "Navegação" : "Cadastros" })),
+    ...navigation.map(({ href, label, icon }) => ({ href, label, icon, group: href === "/" ? "Navegação" : href.startsWith("/cadastros") ? "Cadastros" : "Operação" })),
   ].filter((command) => command.label.toLowerCase().includes(paletteQuery.toLowerCase().trim())), [paletteQuery]);
 
   function runMenuEntry(entry: MenuEntry) {
@@ -174,13 +175,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return <Link key={href} href={href} className={`nav-item ${active ? "active" : ""}`} onClick={() => setSidebarOpen(false)}><Icon size={18} /><span>{label}</span>{active && <ChevronRight className="nav-arrow" size={15} />}</Link>;
           })}
-          <span className="nav-label nav-label-spaced">Operação diária</span>
-          {operationPreview.map(({ label, icon: Icon }) => <span className="nav-item disabled" key={label}><Icon size={18} /><span>{label}</span><small>Em breve</small></span>)}
+          <span className="nav-label nav-label-spaced">Próximas evoluções</span>
+          {futureModules.map(({ label, icon: Icon }) => <span className="nav-item disabled" key={label}><Icon size={18} /><span>{label}</span><small>Em breve</small></span>)}
         </nav>
 
         <div className="sidebar-footer">
           <span className="avatar"><Users size={17} /></span>
-          <span><strong>Ambiente principal</strong><small>Desktop · Banco local</small></span>
+          <span><strong>Ambiente principal</strong><small>Desktop · Negócios e mapa diário</small></span>
         </div>
       </aside>
 

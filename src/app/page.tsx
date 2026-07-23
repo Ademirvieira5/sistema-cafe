@@ -46,26 +46,26 @@ export default function Home() {
 
       <section className="dashboard-status">
         <div className="status-copy">
-          <span className="status-pill"><span className="pulse" /> Sistema pronto</span>
-          <h2>Uma operação rápida começa com uma base confiável.</h2>
-          <p>Os cadastros essenciais estão conectados, protegidos por histórico e preparados para receber compras, pagamentos e vendas.</p>
+          <span className="status-pill"><span className="pulse" /> Negócios e mapa diário ativos</span>
+          <h2>Compra, venda e financeiro em um fluxo simples e direto.</h2>
+          <p>Registre negócios de café, acompanhe vencimentos e visualize o mapa diário sem sair da mesma operação.</p>
           <div className="status-actions">
-            <Link href="/cadastros/pessoas" className="primary-button"><Plus size={17} /> Novo parceiro</Link>
-            <button className="secondary-button" onClick={() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "F8" }))}><Search size={16} /> Busca rápida</button>
+            <Link href="/compras" className="primary-button"><Plus size={17} /> Novo negócio</Link>
+            <Link href="/relatorios" className="secondary-button"><TrendingUp size={16} /> Abrir mapa diário</Link>
           </div>
           <div className="trust-row"><span><ShieldCheck size={15} /> Histórico ativo</span><span><CheckCircle2 size={15} /> Banco local</span><span><Clock3 size={15} /> Resposta imediata</span></div>
         </div>
 
         <div className="operation-preview">
-          <div className="preview-heading"><div><span className="eyebrow">Próxima evolução</span><h3>Pulso financeiro diário</h3></div><span className="preview-badge">Em preparação</span></div>
+          <div className="preview-heading"><div><span className="eyebrow">Visão operacional</span><h3>Pulso financeiro diário</h3></div><span className="preview-badge">Em operação</span></div>
           <div className="cashflow-visual">
             <div className="cashflow-line"><i style={{ height: "31%" }} /><i style={{ height: "46%" }} /><i style={{ height: "38%" }} /><i style={{ height: "63%" }} /><i style={{ height: "54%" }} /><i style={{ height: "76%" }} /><i className="copper-bar" style={{ height: "88%" }} /></div>
             <div className="cashflow-legend"><span><i className="legend-green" /> Movimento projetado</span><strong>Visão por dia</strong></div>
           </div>
           <div className="preview-metrics">
-            <span><small>Entradas</small><strong>Conectará vendas</strong></span>
-            <span><small>Saídas</small><strong>Conectará compras</strong></span>
-            <span><small>Resultado</small><strong>Apuração integrada</strong></span>
+            <span><small>Entradas</small><strong>Vendas e recebimentos</strong></span>
+            <span><small>Saídas</small><strong>Compras e pagamentos</strong></span>
+            <span><small>Consolidado</small><strong>Mapa por vencimento</strong></span>
           </div>
         </div>
       </section>
@@ -87,9 +87,9 @@ export default function Home() {
       <section className="daily-strip">
         <div className="daily-strip-title"><span className="strip-icon"><TrendingUp size={19} /></span><div><strong>Operação diária</strong><small>Fluxo compacto desenhado para trabalhar sem rolagem excessiva</small></div></div>
         <div className="daily-actions">
-          <span><ShoppingCart size={17} /><b>Compra</b><small>Etapa 2</small></span>
-          <span><WalletCards size={17} /><b>Pagamento</b><small>Etapa 3</small></span>
-          <span><CircleDollarSign size={17} /><b>Venda</b><small>Etapa 4</small></span>
+          <Link href="/compras"><ShoppingCart size={17} /><b>Novo negócio</b><small>Compra ou venda</small></Link>
+          <Link href="/contas-gerais"><CircleDollarSign size={17} /><b>Conta geral</b><small>Pagar ou receber</small></Link>
+          <Link href="/relatorios"><WalletCards size={17} /><b>Mapa diário</b><small>Visão consolidada</small></Link>
         </div>
       </section>
     </div>

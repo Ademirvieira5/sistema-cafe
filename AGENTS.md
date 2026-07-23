@@ -85,9 +85,9 @@ Ao terminar a Etapa 1, pare e aguarde nova instrução.
 
 ## Parcelas de pagamentos e recebimentos
 
-- Apresente inicialmente quatro linhas para parcelas.
+- Apresente inicialmente uma linha para parcela.
 - Disponibilize o botão `Adicionar parcela` para criar novas linhas conforme a necessidade.
-- Não imponha limite fixo de quatro parcelas no banco de dados.
+- Não imponha limite fixo de parcelas no banco de dados.
 - Esse comportamento deve ser mantido quando os módulos de pagamentos e recebimentos forem autorizados em etapa futura.
 
 ## Dados e regras gerais

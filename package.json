@@ -14,9 +14,10 @@
                     "db:deploy":  "prisma migrate deploy",
                     "db:studio":  "prisma studio",
                     "desktop":  "electron . --dev",
-                    "desktop:build":  "npm run build \u0026\u0026 npm run desktop:prepare-db \u0026\u0026 electron-builder --win nsis",
-                    "desktop:dir":  "npm run build \u0026\u0026 npm run desktop:prepare-db \u0026\u0026 electron-builder --dir",
-                    "desktop:prepare-db":  "node scripts/prepare-desktop-db.cjs"
+                    "desktop:build":  "npm run build \u0026\u0026 npm run desktop:prepare-aliases \u0026\u0026 npm run desktop:prepare-db \u0026\u0026 electron-builder --win nsis",
+                    "desktop:dir":  "npm run build \u0026\u0026 npm run desktop:prepare-aliases \u0026\u0026 npm run desktop:prepare-db \u0026\u0026 electron-builder --dir",
+                    "desktop:prepare-db":  "node scripts/prepare-desktop-db.cjs",
+                    "desktop:prepare-aliases":  "node scripts/materialize-next-aliases.cjs"
                 },
     "dependencies":  {
                          "@prisma/client":  "6.19.0",
@@ -49,12 +50,16 @@
                                   },
                   "files":  [
                                 ".next/**/*",
+                                "!.next/standalone/**/*",
+                                "!.next/cache/**/*",
+                                "!.next/dev/**/*",
                                 "electron/**/*",
                                 "prisma/**/*",
                                 "public/**/*",
                                 "src/**/*",
                                 "next.config.ts",
-                                "package.json"
+                                "package.json",
+                                "node_modules/.prisma/**/*"
                             ],
                   "win":  {
                               "target":  "nsis"
@@ -70,7 +75,16 @@
                                          {
                                              "from":  "electron/template.db",
                                              "to":  "template.db"
+                                         },
+                                         {
+                                             "from":  "node_modules/.prisma",
+                                             "to":  "app/.next/node_modules/.prisma"
+                                         },
+                                         {
+                                             "from":  ".next/node_modules/@prisma",
+                                             "to":  "app/.next/node_modules/@prisma"
                                          }
                                      ]
-              }
+              },
+    "author":  "Ademirvieira5"
 }
