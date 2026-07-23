@@ -11,16 +11,13 @@ let client: PrismaClient;
 describe("persistência e histórico da Etapa 1", () => {
   beforeAll(() => {
     if (existsSync(databasePath)) rmSync(databasePath);
-    execFileSync("npx", ["prisma", "migrate", "deploy"], {
+    const prismaCli = resolve(process.cwd(), "node_modules/prisma/build/index.js");
+    execFileSync(process.execPath, [prismaCli, "migrate", "deploy"], {
       cwd: process.cwd(),
       env: {
         ...process.env,
         DATABASE_URL: databaseUrl,
-        HOME: "/tmp",
-        XDG_CACHE_HOME: "/tmp/cache",
-        XDG_CONFIG_HOME: "/tmp/config",
         RUST_LOG: "info",
-        npm_config_cache: "/tmp/npm-cache",
       },
       stdio: "pipe",
     });

@@ -6,4 +6,4 @@ coverage/
 prisma/*.db
 prisma/*.db-journal
 *.log
-
+electron/template.db
