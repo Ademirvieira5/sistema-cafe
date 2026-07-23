@@ -115,6 +115,8 @@ Cada compra deve permitir:
 - Vendas por período, cliente, quantidade, preço unitário e valor total.
 - Os relatórios individuais de compras e vendas não exibem vencimentos; somam quilos, sacas e valores e calculam preço médio ponderado somente dentro do período escolhido.
 - Mapa diário único de contas a pagar e receber, filtrado por intervalo de vencimentos, fornecedor ou cliente, demonstrando total a pagar, total a receber, saldo de cada dia e saldo acumulado.
+- Nas linhas de café do mapa diário, mostrar quantidade de sacas e preço unitário por saca; contas gerais não exibem esses campos.
+- Apresentar o total de cada data em uma linha compacta abaixo dos respectivos lançamentos, mantendo os totais gerais do período no final do relatório.
 - O mapa diário deve permitir consolidar tudo, mostrar somente pagar ou receber e imprimir para uso operacional diário.
 - Relatório mensal de compras e vendas, incluindo operações com documento fiscal e sem documento, com identificação clara da situação documental.
 - Resumo mensal com quantidades, quilos, sacas e preços médios ponderados de compra e venda.
