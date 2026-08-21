@@ -1,0 +1,1 @@
+ALTER TABLE `inventory_month_closings` ADD `closing_price_per_sack_cents` integer DEFAULT 0 NOT NULL;

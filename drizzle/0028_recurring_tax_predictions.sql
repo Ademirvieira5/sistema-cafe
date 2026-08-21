@@ -1,0 +1,8 @@
+INSERT OR IGNORE INTO `general_entries` (`id`,`direction`,`description`,`category_id`,`person_id`,`due_date`,`amount_cents`,`paid_amount_cents`,`fixed_monthly`,`operation_key`,`notes`,`active`,`created_at`,`updated_at`)
+SELECT 'recurring-tax-fgts-2026-08','PAYABLE','FGTS 08/2026',`id`,NULL,'2026-09-20',233045,0,1,'RECURRING_TAX:FGTS:2026-08','Previsão mensal variável - confirmar pela nova guia',1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP FROM `financial_categories` WHERE `code`='ENCARGOS_FGTS' LIMIT 1;
+--> statement-breakpoint
+INSERT OR IGNORE INTO `general_entries` (`id`,`direction`,`description`,`category_id`,`person_id`,`due_date`,`amount_cents`,`paid_amount_cents`,`fixed_monthly`,`operation_key`,`notes`,`active`,`created_at`,`updated_at`)
+SELECT 'recurring-tax-darf-prev-2026-08','PAYABLE','DARF previdenciário sem Funrural 08/2026',`id`,NULL,'2026-09-20',1267320,0,1,'RECURRING_TAX:DARF_PREVIDENCIARIO_SEM_FUNRURAL:2026-08','Previsão mensal variável - Funrural controlado separadamente pelos XMLs',1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP FROM `financial_categories` WHERE `code`='TRIBUTOS_DARF' LIMIT 1;
+--> statement-breakpoint
+INSERT OR IGNORE INTO `general_entries` (`id`,`direction`,`description`,`category_id`,`person_id`,`due_date`,`amount_cents`,`paid_amount_cents`,`fixed_monthly`,`operation_key`,`notes`,`active`,`created_at`,`updated_at`)
+SELECT 'recurring-tax-darf-ret-2026-08','PAYABLE','DARF de retenções 08/2026',`id`,NULL,'2026-09-20',129817,0,1,'RECURRING_TAX:DARF_RETENCOES:2026-08','Previsão mensal variável - confirmar pelo novo DARF',1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP FROM `financial_categories` WHERE `code`='TRIBUTOS_DARF' LIMIT 1;

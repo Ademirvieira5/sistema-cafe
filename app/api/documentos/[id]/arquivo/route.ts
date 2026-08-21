@@ -1,0 +1,2 @@
+import{apiError}from"@/lib/api-response";import{importedPdfObject}from"@/lib/imported-documents";type Context={params:Promise<{id:string}>};
+export async function GET(_request:Request,{params}:Context){try{const{object,filename}=await importedPdfObject((await params).id);return new Response(object.body,{headers:{"Content-Type":"application/pdf","Content-Disposition":`inline; filename="${filename.replace(/["\\]/g,"_")}"`}})}catch(error){return apiError(error)}}

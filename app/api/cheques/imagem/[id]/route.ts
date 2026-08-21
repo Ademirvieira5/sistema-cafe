@@ -1,0 +1,4 @@
+import { NextResponse } from "next/server";
+import { d1 } from "@/lib/d1";
+type Context={params:Promise<{id:string}>};
+export async function GET(_request:Request,{params}:Context){const cheque=await d1().prepare("SELECT image_key FROM cheques WHERE id=? AND active=1").bind((await params).id).first<{image_key:string|null}>();if(!cheque?.image_key)return NextResponse.json({error:"Fotografia não encontrada."},{status:404});const bucket=(globalThis as typeof globalThis&{__SISTEMA_CAFE_BUCKET?:R2Bucket}).__SISTEMA_CAFE_BUCKET;if(!bucket)return NextResponse.json({error:"Armazenamento de imagens indisponível."},{status:503});const object=await bucket.get(cheque.image_key);if(!object)return NextResponse.json({error:"Fotografia não encontrada."},{status:404});const headers=new Headers();object.writeHttpMetadata(headers);headers.set("Cache-Control","private, max-age=300");headers.set("Content-Disposition","inline");return new Response(object.body,{headers})}

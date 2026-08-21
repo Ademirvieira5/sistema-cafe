@@ -1,0 +1,1 @@
+ALTER TABLE `bank_transactions` ADD `financial_category_id` text REFERENCES financial_categories(id);
