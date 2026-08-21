@@ -1,0 +1,20 @@
+CREATE TABLE `bank_transactions` (
+	`id` text PRIMARY KEY NOT NULL,
+	`bank_account_id` text NOT NULL,
+	`direction` text NOT NULL,
+	`method` text NOT NULL,
+	`status` text DEFAULT 'PLANNED' NOT NULL,
+	`due_date` text NOT NULL,
+	`movement_date` text,
+	`amount_cents` integer NOT NULL,
+	`counterparty` text NOT NULL,
+	`description` text NOT NULL,
+	`document` text,
+	`check_number` text,
+	`reconciled` integer DEFAULT false NOT NULL,
+	`notes` text,
+	`active` integer DEFAULT true NOT NULL,
+	`created_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	`updated_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	FOREIGN KEY (`bank_account_id`) REFERENCES `bank_accounts`(`id`) ON UPDATE no action ON DELETE no action
+);

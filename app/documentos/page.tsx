@@ -1,0 +1,1 @@
+import{DocumentImportWorkspace}from"@/components/document-import-workspace";import{importedDocumentOptions}from"@/lib/imported-documents";export const dynamic="force-dynamic";export default async function Page(){return <DocumentImportWorkspace options={await importedDocumentOptions()}/>}

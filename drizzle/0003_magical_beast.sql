@@ -1,0 +1,1 @@
+ALTER TABLE `bank_transactions` ADD `transfer_group_id` text;

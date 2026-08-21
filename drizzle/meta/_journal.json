@@ -1,0 +1,237 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1787089943777,
+      "tag": "0000_mysterious_yellow_claw",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1787091490528,
+      "tag": "0001_dazzling_proemial_gods",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1787092986300,
+      "tag": "0002_steady_warpath",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1787093669937,
+      "tag": "0003_magical_beast",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1787094630346,
+      "tag": "0004_cloudy_sentinel",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1787097856700,
+      "tag": "0005_daffy_mole_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1787098520443,
+      "tag": "0006_next_beast",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1787103921218,
+      "tag": "0007_condemned_wind_dancer",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1787106112412,
+      "tag": "0008_fair_yellow_claw",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1787106550661,
+      "tag": "0009_blue_satana",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1787106910624,
+      "tag": "0010_cool_vector",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1787108475399,
+      "tag": "0011_perpetual_roughhouse",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1787135255719,
+      "tag": "0012_fix_sicredi_opening_balance",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "6",
+      "when": 1787138294905,
+      "tag": "0013_freezing_legion",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "6",
+      "when": 1787139000000,
+      "tag": "0014_import_control_fiscal_partners",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "6",
+      "when": 1787142088101,
+      "tag": "0015_refresh_control_fiscal_partners",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "6",
+      "when": 1787145000000,
+      "tag": "0016_sync_broker_profiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1787148000000,
+      "tag": "0017_multiple_deal_brokers",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "6",
+      "when": 1787151600000,
+      "tag": "0018_delete_cancelled_test_transactions",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "6",
+      "when": 1787155200000,
+      "tag": "0019_delete_cancelled_test_deal",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "6",
+      "when": 1787160062106,
+      "tag": "0020_majestic_micromacro",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "6",
+      "when": 1787162400000,
+      "tag": "0021_sale_return_adjustments",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "6",
+      "when": 1787167200000,
+      "tag": "0022_banking_reconciliation_categories",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "6",
+      "when": 1787173200000,
+      "tag": "0023_repair_orphaned_xml_links",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "6",
+      "when": 1787176800000,
+      "tag": "0024_fiscal_weight_adjustments",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "6",
+      "when": 1787181600000,
+      "tag": "0025_imported_pdf_documents",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "6",
+      "when": 1787251632731,
+      "tag": "0026_superb_zaladane",
+      "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "6",
+      "when": 1787254516433,
+      "tag": "0027_aromatic_mattie_franklin",
+      "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "6",
+      "when": 1787259000000,
+      "tag": "0028_recurring_tax_predictions",
+      "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "6",
+      "when": 1787265600000,
+      "tag": "0029_restore_amajo_sale_00011",
+      "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "6",
+      "when": 1787269200000,
+      "tag": "0030_xml_expense_category",
+      "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "6",
+      "when": 1787270839061,
+      "tag": "0031_thick_mandroid",
+      "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "6",
+      "when": 1787274615762,
+      "tag": "0032_long_sir_ram",
+      "breakpoints": true
+    }
+  ]
+}
